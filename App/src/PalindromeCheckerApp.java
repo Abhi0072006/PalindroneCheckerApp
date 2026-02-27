@@ -1,30 +1,20 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.Scanner;
 public class PalindromeCheckerApp {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter a word: ");
-        String input = sc.nextLine().toLowerCase();
-        Deque<Character> deque = new ArrayDeque<>();
-        for (int i = 0; i < input.length(); i++) {
-            deque.addLast(input.charAt(i));
-        }
-        boolean isPalindrome = true;
-        while (deque.size() > 1) {
-            char first = deque.removeFirst();
-            char last = deque.removeLast();
 
-            if (first != last) {
-                isPalindrome = false;
-                break;
-            }
+    public static void main(String[] args) {
+
+        System.out.println("Welcome to Palindrome Checker App - UseCase 2");
+
+        String input = "madam";   // Hardcoded value
+        String reversed = "";
+
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed += input.charAt(i);
         }
-        if (isPalindrome) {
-            System.out.println("It is a Palindrome.");
+
+        if (input.equalsIgnoreCase(reversed)) {
+            System.out.println(input + " is a Palindrome");
         } else {
-            System.out.println("It is NOT a Palindrome.");
+            System.out.println(input + " is NOT a Palindrome");
         }
-        sc.close();
     }
 }
